@@ -108,48 +108,50 @@ export default function CarDetailsPage() {
             </div>
 
             {/* Known Specs List */}
-            <div className="pt-3 border-t border-[#E7E3DA] space-y-3">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-[#646B76]">
-                Specifications
-              </h4>
-              <div className="grid grid-cols-2 gap-2.5 sm:gap-3 text-xs sm:text-sm">
-                {specs.seating && (
-                  <div className="flex items-center gap-2.5 text-[#17243A] min-w-0">
-                    <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-[#F8F6F0] border border-[#E7E3DA] flex items-center justify-center text-[#C9A85C] shrink-0">
-                      <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+            {(specs.seating || specs.fuelType || specs.transmission) && (
+              <div className="pt-3 border-t border-[#E7E3DA] space-y-3">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-[#646B76]">
+                  Specifications
+                </h4>
+                <div className="grid grid-cols-2 gap-2.5 sm:gap-3 text-xs sm:text-sm">
+                  {specs.seating && (
+                    <div className="flex items-center gap-2.5 text-[#17243A] min-w-0">
+                      <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-[#F8F6F0] border border-[#E7E3DA] flex items-center justify-center text-[#C9A85C] shrink-0">
+                        <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                      </div>
+                      <div className="min-w-0">
+                        <span className="text-[10px] sm:text-[11px] text-[#646B76] block">Capacity</span>
+                        <span className="font-semibold truncate block">{specs.seating}</span>
+                      </div>
                     </div>
-                    <div className="min-w-0">
-                      <span className="text-[10px] sm:text-[11px] text-[#646B76] block">Capacity</span>
-                      <span className="font-semibold truncate block">{specs.seating}</span>
-                    </div>
-                  </div>
-                )}
+                  )}
 
-                {specs.fuelType && (
-                  <div className="flex items-center gap-2.5 text-[#17243A] min-w-0">
-                    <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-[#F8F6F0] border border-[#E7E3DA] flex items-center justify-center text-[#C9A85C] shrink-0">
-                      <Fuel className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                  {specs.fuelType && (
+                    <div className="flex items-center gap-2.5 text-[#17243A] min-w-0">
+                      <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-[#F8F6F0] border border-[#E7E3DA] flex items-center justify-center text-[#C9A85C] shrink-0">
+                        <Fuel className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                      </div>
+                      <div className="min-w-0">
+                        <span className="text-[10px] sm:text-[11px] text-[#646B76] block">Fuel Type</span>
+                        <span className="font-semibold truncate block">{specs.fuelType}</span>
+                      </div>
                     </div>
-                    <div className="min-w-0">
-                      <span className="text-[10px] sm:text-[11px] text-[#646B76] block">Fuel Type</span>
-                      <span className="font-semibold truncate block">{specs.fuelType}</span>
-                    </div>
-                  </div>
-                )}
+                  )}
 
-                {specs.transmission && (
-                  <div className="flex items-center gap-2.5 text-[#17243A] col-span-2 pt-1 min-w-0">
-                    <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-[#F8F6F0] border border-[#E7E3DA] flex items-center justify-center text-[#C9A85C] shrink-0">
-                      <Gauge className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                  {specs.transmission && (
+                    <div className="flex items-center gap-2.5 text-[#17243A] col-span-2 pt-1 min-w-0">
+                      <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-[#F8F6F0] border border-[#E7E3DA] flex items-center justify-center text-[#C9A85C] shrink-0">
+                        <Gauge className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                      </div>
+                      <div className="min-w-0">
+                        <span className="text-[10px] sm:text-[11px] text-[#646B76] block">Transmission</span>
+                        <span className="font-semibold truncate block">{specs.transmission}</span>
+                      </div>
                     </div>
-                    <div className="min-w-0">
-                      <span className="text-[10px] sm:text-[11px] text-[#646B76] block">Transmission</span>
-                      <span className="font-semibold truncate block">{specs.transmission}</span>
-                    </div>
-                  </div>
-                )}
+                  )}
+                </div>
               </div>
-            </div>
+            )}
           </div>
 
           {/* Rental Packages */}
@@ -163,7 +165,7 @@ export default function CarDetailsPage() {
               rel="noopener noreferrer"
               className="w-full inline-flex items-center justify-center text-center gap-2 py-3.5 sm:py-4 px-4 sm:px-6 rounded-xl sm:rounded-2xl bg-[#17243A] hover:bg-[#223452] text-white font-bold text-sm sm:text-base transition-all duration-200 shadow-md shadow-[#17243A]/15 hover:shadow-xl hover:shadow-[#17243A]/25 cursor-pointer active:scale-95 border border-transparent hover:border-[#C9A85C] min-h-[46px]"
             >
-              <span className="break-words">Enquire for {name} on WhatsApp</span>
+              <span className="break-words">Book {name} on WhatsApp</span>
             </a>
             <p className="text-center text-xs text-[#646B76]">
               Direct connection with Dwarkadhish Car Rent in Surat

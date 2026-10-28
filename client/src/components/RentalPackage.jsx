@@ -6,7 +6,7 @@ export default function RentalPackage({ packages = [] }) {
     return (
       <div className="p-6 rounded-2xl bg-white border border-[#E7E3DA] text-center shadow-xs">
         <Tag className="w-8 h-8 text-[#C9A85C] mx-auto mb-2 opacity-90" />
-        <h4 className="text-base font-bold text-[#17243A]">Rental Packages on Enquiry</h4>
+        <h4 className="text-base font-bold text-[#17243A]">Contact for Price</h4>
         <p className="text-sm text-[#646B76] mt-1 max-w-sm mx-auto">
           Specific hourly and daily rates for this vehicle are available directly via WhatsApp enquiry.
         </p>

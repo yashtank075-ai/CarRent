@@ -23,7 +23,7 @@ export default function CarCard({ car }) {
   const whatsappUrl = getCarWhatsAppLink(car);
 
   return (
-    <div className="group relative flex flex-col w-full max-w-full rounded-2xl sm:rounded-3xl bg-white border border-[#E7E3DA] overflow-hidden hover:border-[#C9A85C] transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-[#17243A]/6 min-w-0">
+    <div className="group relative flex flex-col h-full w-full max-w-full rounded-2xl sm:rounded-3xl bg-white border border-[#E7E3DA] overflow-hidden hover:border-[#C9A85C] transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-[#17243A]/6 min-w-0">
       {/* Sample/Demo Badge if explicitly marked */}
       {isDemo && (
         <div className="absolute top-3 sm:top-4 left-3 sm:left-4 z-10 bg-amber-500 text-white font-bold text-[10px] sm:text-xs uppercase px-2.5 sm:px-3 py-1 rounded-md shadow-md flex items-center gap-1.5">
@@ -33,7 +33,7 @@ export default function CarCard({ car }) {
       )}
 
       {/* Image container: consistent 4:3 aspect ratio, object-cover with top-centered alignment */}
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F0EEE7]">
+      <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden bg-[#F0EEE7]">
         <img
           src={defaultImage}
           alt={`${name} available for rent from Dwarkadhish Car Rent in Surat`}
@@ -50,9 +50,9 @@ export default function CarCard({ car }) {
         )}
       </div>
 
-      {/* Content area with responsive padding */}
+      {/* Content area with responsive padding - flex-1 flex flex-col justify-between to anchor footer buttons */}
       <div className="p-4 sm:p-6 lg:p-7 flex-1 flex flex-col justify-between min-w-0">
-        <div className="min-w-0">
+        <div className="flex-1 flex flex-col justify-between min-w-0">
           <div className="flex items-start justify-between gap-2 mb-2 sm:mb-3">
             <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-[#17243A] group-hover:text-[#C9A85C] transition-colors truncate">
               {name}
@@ -60,35 +60,37 @@ export default function CarCard({ car }) {
           </div>
 
           {/* Specs list with readable font sizes & high contrast icons */}
-          <div className="grid grid-cols-2 gap-2 sm:gap-3 py-3 border-y border-[#E7E3DA] my-3 sm:my-4 text-xs sm:text-sm text-[#17243A]">
-            {specs.seating && (
-              <div className="flex items-center gap-2 sm:gap-2.5 min-w-0">
-                <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-[#F8F6F0] flex items-center justify-center text-[#C9A85C] shrink-0 border border-[#E7E3DA]">
-                  <Users className="w-3.5 h-3.5" />
+          {(specs.seating || specs.fuelType || specs.transmission) && (
+            <div className="grid grid-cols-2 gap-2 sm:gap-3 py-3 border-y border-[#E7E3DA] my-3 sm:my-4 text-xs sm:text-sm text-[#17243A]">
+              {specs.seating && (
+                <div className="flex items-center gap-2 sm:gap-2.5 min-w-0">
+                  <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-[#F8F6F0] flex items-center justify-center text-[#C9A85C] shrink-0 border border-[#E7E3DA]">
+                    <Users className="w-3.5 h-3.5" />
+                  </div>
+                  <span className="font-medium text-[#17243A] truncate">{specs.seating}</span>
                 </div>
-                <span className="font-medium text-[#17243A] truncate">{specs.seating}</span>
-              </div>
-            )}
-            {specs.fuelType && (
-              <div className="flex items-center gap-2 sm:gap-2.5 min-w-0">
-                <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-[#F8F6F0] flex items-center justify-center text-[#C9A85C] shrink-0 border border-[#E7E3DA]">
-                  <Fuel className="w-3.5 h-3.5" />
+              )}
+              {specs.fuelType && (
+                <div className="flex items-center gap-2 sm:gap-2.5 min-w-0">
+                  <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-[#F8F6F0] flex items-center justify-center text-[#C9A85C] shrink-0 border border-[#E7E3DA]">
+                    <Fuel className="w-3.5 h-3.5" />
+                  </div>
+                  <span className="font-medium text-[#17243A] truncate">{specs.fuelType}</span>
                 </div>
-                <span className="font-medium text-[#17243A] truncate">{specs.fuelType}</span>
-              </div>
-            )}
-            {specs.transmission && (
-              <div className="flex items-center gap-2 sm:gap-2.5 col-span-2 pt-0.5 min-w-0">
-                <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-[#F8F6F0] flex items-center justify-center text-[#C9A85C] shrink-0 border border-[#E7E3DA]">
-                  <Gauge className="w-3.5 h-3.5" />
+              )}
+              {specs.transmission && (
+                <div className="flex items-center gap-2 sm:gap-2.5 col-span-2 pt-0.5 min-w-0">
+                  <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-[#F8F6F0] flex items-center justify-center text-[#C9A85C] shrink-0 border border-[#E7E3DA]">
+                    <Gauge className="w-3.5 h-3.5" />
+                  </div>
+                  <span className="font-medium text-[#17243A] truncate">{specs.transmission}</span>
                 </div>
-                <span className="font-medium text-[#17243A] truncate">{specs.transmission}</span>
-              </div>
-            )}
-          </div>
+              )}
+            </div>
+          )}
 
           {/* Rental Package Pricing Display */}
-          <div className="my-3">
+          <div className="my-3 mt-auto">
             {hasPackages ? (
               <div className="space-y-1.5 sm:space-y-2 bg-[#F8F6F0] p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-[#E7E3DA]">
                 <div className="text-[11px] sm:text-xs uppercase tracking-wider text-[#646B76] font-semibold">
@@ -106,9 +108,12 @@ export default function CarCard({ car }) {
                 </div>
               </div>
             ) : (
-              <div className="flex items-center gap-2 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-[#F8F6F0] border border-dashed border-[#E7E3DA] text-xs sm:text-sm text-[#646B76]">
-                <Info className="w-4 h-4 text-[#C9A85C] shrink-0" />
-                <span>Packages & rates available upon direct enquiry</span>
+              <div className="flex items-center justify-between p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-[#F8F6F0] border border-[#E7E3DA] text-xs sm:text-sm">
+                <div className="flex items-center gap-2 text-[#17243A] font-semibold">
+                  <Info className="w-4 h-4 text-[#C9A85C] shrink-0" />
+                  <span>Contact for Price</span>
+                </div>
+                <span className="text-[11px] sm:text-xs text-[#646B76]">On Enquiry</span>
               </div>
             )}
           </div>
@@ -117,7 +122,7 @@ export default function CarCard({ car }) {
         {/* Action Buttons: Stacks cleanly on very small screens, flex-row on sm+ */}
         <div className="pt-3 sm:pt-4 mt-2 flex flex-col sm:flex-row gap-2.5 sm:gap-3">
           <WhatsAppButton
-            text="Enquire"
+            text="Book on WhatsApp"
             variant="dark"
             className="flex-1 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold min-h-[44px]"
             onClick={(e) => {

@@ -67,7 +67,7 @@ export default function FleetPage() {
       />
 
       {/* Results Count & Active Info */}
-      <div className="flex items-center justify-between text-xs sm:text-sm text-slate-300 -mt-6 px-1">
+      <div className="flex items-center justify-between text-xs sm:text-sm text-[#646B76] -mt-6 px-1">
         <span>Showing {filteredCars.length} of {FLEET_DATA.length} vehicle{FLEET_DATA.length === 1 ? '' : 's'}</span>
         <span>All rates in INR (₹)</span>
       </div>
