@@ -38,7 +38,7 @@ export default function CarCard({ car }) {
           src={defaultImage}
           alt={`${name} available for rent from Dwarkadhish Car Rent in Surat`}
           loading="lazy"
-          className="w-full h-full object-cover object-[center_35%] transition-transform duration-500 group-hover:scale-105"
+          className="absolute inset-0 w-full h-full object-cover object-[center_35%] transition-transform duration-500 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-60 pointer-events-none" />
         

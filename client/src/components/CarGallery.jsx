@@ -14,7 +14,7 @@ export default function CarGallery({ images = [], name = 'Hyundai Venue' }) {
           <img
             src={activeImage}
             alt={`${name} available for rent from Dwarkadhish Car Rent in Surat`}
-            className="w-full h-full object-cover object-[center_35%] transition-all duration-300"
+            className="absolute inset-0 w-full h-full object-cover object-[center_35%] transition-all duration-300"
           />
         </div>
       </div>

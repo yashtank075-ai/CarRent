@@ -67,7 +67,7 @@ export default function HeroSection() {
                   <img
                     src="/images/hyundai-venue-premium.png"
                     alt="Hyundai Venue available for rent from Dwarkadhish Car Rent in Surat"
-                    className="w-full h-full object-cover object-[center_35%] group-hover:scale-105 transition-transform duration-700"
+                    className="absolute inset-0 w-full h-full object-cover object-[center_35%] group-hover:scale-105 transition-transform duration-700"
                     loading="eager"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#17243A]/40 via-transparent to-transparent pointer-events-none" />
