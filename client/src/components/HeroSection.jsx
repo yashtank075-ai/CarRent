@@ -5,7 +5,7 @@ import WhatsAppButton from './WhatsAppButton';
 
 export default function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[#F8F6F0] via-[#F8F6F0] to-[#F0EEE7] py-8 sm:py-12 lg:py-20 border-b border-[#E7E3DA]">
+    <section className="relative overflow-hidden bg-gradient-to-br from-[#F7F8FA] via-white to-[#EEF1F4] py-10 sm:py-14 lg:py-24 border-b border-[#E5E7EB]">
       {/* Decorative subtle ambient warm luxury glow */}
       <div className="absolute top-0 right-1/4 w-72 sm:w-96 h-72 sm:h-96 bg-[#C9A85C]/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-6 sm:left-10 w-60 sm:w-80 h-60 sm:h-80 bg-[#E7E3DA]/60 rounded-full blur-2xl pointer-events-none" />
@@ -23,7 +23,7 @@ export default function HeroSection() {
             </div>
 
             {/* Main Headline with responsive fluid typography */}
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#17243A] leading-[1.18] sm:leading-[1.14]">
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-[-0.04em] text-[#0F172A] leading-[1.08]">
               Find the Right Car for{' '}
               <span className="gold-gradient-text block sm:inline">Every Journey</span>
             </h1>

@@ -13,7 +13,7 @@ import NotFoundPage from './pages/NotFoundPage';
 export default function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen flex flex-col bg-[#F8F6F0] text-[#17243A]">
+      <div className="min-h-screen flex flex-col bg-[#F7F8FA] text-[#0F172A]">
         <Navbar />
         <main className="flex-1">
           <Routes>

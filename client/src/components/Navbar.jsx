@@ -88,7 +88,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Nav Links (Visible from lg: 1024px upwards to prevent overlapping at intermediate sizes) */}
-          <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2">
+          <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
             {navLinks.map((link) => (
               <NavLink
                 key={link.name}
@@ -140,7 +140,7 @@ export default function Navbar() {
           role="dialog"
           aria-modal="true"
         >
-          <nav className="space-y-2.5 sm:space-y-3">
+          <nav className="flex flex-col gap-2.5 sm:gap-3">
             {navLinks.map((link) => (
               <NavLink
                 key={link.name}
